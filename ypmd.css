@@ -58,6 +58,8 @@ h1
     height: 50px;
     margin:0;
     border-style:none;
+    bottom:0;
+    position:absolute;
 }
 #footerTable
 {
