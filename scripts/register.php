@@ -27,10 +27,13 @@
         if( $conn->query($sql))
         {
             echo "worked";
+            $_SESSION['email'] = $email;
+            header("Location: /profile.html");
         }
         else
         {
             echo "didn't work";
+            
         }
     } 
     echo "finish";
