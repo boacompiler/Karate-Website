@@ -18,7 +18,20 @@
     }
     else
     {
-        echo "worked";
+        echo $firstname;
+        echo $secondname;
+        echo $email;
+        echo $password;
+        echo $dob;
+        $sql = "INSERT INTO 'user' ('admin', 'namefirst', 'namesecond', 'email', 'password', 'dateofbirth') VALUES (0, '$firstname', '$secondname', '$email', '$password', '$dob');";
+        if( $conn->query($sql))
+        {
+            echo "worked";
+        }
+        else
+        {
+            echo "didn't work";
+        }
     } 
     echo "finish";
     $conn->close();
