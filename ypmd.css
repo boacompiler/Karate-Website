@@ -55,11 +55,24 @@ h1
 {
     background-color:#90aac1;
     width:100%;
-    height: 100px;
+    height: 50px;
     margin:0;
     border-style:none;
+}
+#footerTable
+{
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    table-layout: fixed;
+    text-align: center;
+}
+#footerTable a
+{
+    color: #d9dcdb;
 }
 #content
 {
     margin:10;
+    padding-top: 150px;
 }
