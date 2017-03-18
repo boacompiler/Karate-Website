@@ -1,4 +1,4 @@
-<?php session_start(); ?> 
+<?php include "scripts/base.php"; ?>
 <html>
     <body>
         <p>before</p>
