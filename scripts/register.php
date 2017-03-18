@@ -28,7 +28,7 @@
         {
             echo "worked";
             $_SESSION['email'] = $email;
-            header("Location: /profile.html");
+            header("Location: /profile.php");
         }
         else
         {
