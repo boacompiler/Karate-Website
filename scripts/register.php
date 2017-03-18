@@ -23,7 +23,7 @@
         echo $email;
         echo $password;
         echo $dob;
-        $sql = "INSERT INTO 'user' ('admin', 'namefirst', 'namesecond', 'email', 'password', 'dateofbirth') VALUES (0, '$firstname', '$secondname', '$email', '$password', '$dob');";
+        $sql = "INSERT INTO `user` (`admin`, `namefirst`, `namesecond`, `email`, `password`, `dateofbirth`) VALUES ('0', '$firstname', '$secondname', '$email', '$password', '$dob');";
         if( $conn->query($sql))
         {
             echo "worked";
