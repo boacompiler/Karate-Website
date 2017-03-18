@@ -1,8 +1,15 @@
 <html>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js">
         <script src="scripts/ypmd.js"></script>
+        <script>
+            $(function() {
+                $( "#datepicker" ).datepicker({dateFormat: "yy-mm-dd"}).val(); 
+            } );
+        </script>
         <link rel="stylesheet" type="text/css" href="ypmd.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" >
         <meta charset="UTF-8">
         <meta name="keywords" content="Yoga, Pilates, Martial Arts, Dance, School, Karate, Tae Kwon Do">
         <meta name="description" content="Yoga/Pilates/Martial arts/Dance School">
@@ -25,12 +32,16 @@
             </table>
         </div>
         <div id="content">
-            <p>this is the login form</p> 
-            <form method="post" action="scripts/login.php">
+            <p>this is the registration form</p> 
+            <form method="post" action="scripts/register.php">
                 <table>
                     <tr>
                         <td>Email:</td>
                         <td><input type="email" name="email"></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" name="password"></td>
                     </tr>
                     <tr>
                         <td>First Name:</td>
@@ -42,7 +53,10 @@
                     </tr>
                     <tr>
                         <td>Date of Birth:</td>
-                        <td><input type="date" name="dob"></td>
+                        <td><input type="text" name="dob" id="datepicker"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="submit"></td>
                     </tr>
                 </table>
             </form>
