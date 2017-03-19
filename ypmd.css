@@ -59,7 +59,7 @@ h1
     margin:0;
     border-style:none;
     bottom:0;
-    position:absolute;
+    position:absolute; 
 }
 #footerTable
 {
@@ -76,5 +76,12 @@ h1
 #content
 {
     margin:10;
-    padding-top: 150px;
+    padding-top:150px;
+    padding-bottom:50px;
+    min-height:100%;
+}
+#wrapper
+{
+    min-height:100%;
+    position:relative;
 }

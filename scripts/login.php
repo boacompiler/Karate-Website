@@ -10,16 +10,17 @@
     $sql = "SELECT * FROM user WHERE password='$password' AND email='$email'";
     $result = $conn->query($sql);
 
-    //if ($result->num_rows > 0) 
-    //{
-    //    while($row = $result->fetch_assoc())
-    //    {
-    //        echo $row["namefirst"] . " " . $row["namesecond"];
-    //    }
-    //}
-    $row = $result->fetch_assoc();
-    echo $row["dateofbirth"];
+    if ($result->num_rows == 1) 
+    {
+        $row = $result->fetch_assoc();
+        echo $row["dateofbirth"];
+        $_SESSION['email'] = $email;
+        header("Location: /profile.php");
+    }
+    else
+    {
+        echo "something went wrong";
+    }
     $conn->close();
-    //header("Location: /index.html");
     die();
 ?> 
