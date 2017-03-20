@@ -27,18 +27,33 @@
                 </table>
             </div>
             <div id="content">
-            <p>can you see this</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p>
+                <form method="post" action="scripts/loginscript.php">
+                    <table>
+                        <tr>
+                            <td>Email:</td>
+                            <td><input type="email" name="email"></td>
+                        </tr>
+                        <tr>
+                            <td>Password:</td>
+                            <td><input type="password" name="password"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="submit" value="submit"></td>
+                        </tr>
+                    </table>
+                </form>
+                <p>Don't have an account? <a href="register.php">Register</a></p>
             </div>
             <div id="footer">
                 <table id="footerTable">
                     <tr>
                         <td><a href="about.html"><div>About</div></a></td>
                         <td><a href="contact.html"><div>Contact</div></a></td>
-                        <td><a href="login.php"><div>Login</div></a></td>
+                        <td><a href="login.html"><div>Login</div></a></td>
                         <td><a href="admin.html"><div>Admin</div></a></td>
                     </tr>
                 </table>
             </div>
         </div>
     </body>
-</html>
+</html> 

@@ -7,8 +7,15 @@
         <meta name="description" content="Yoga/Pilates/Martial arts/Dance School">
         <meta name="author" content="Robert Stephens">
         <link rel="stylesheet" type="text/css" href="ypmd.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" >
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js">
         <script src="scripts/ypmd.js"></script>
+        <script>
+            $(function() {
+                $( "#datepicker" ).datepicker({dateFormat: "yy-mm-dd"}).val(); 
+            } );
+        </script>
     </head>
     <body>
         <div id="wrapper">
@@ -27,7 +34,33 @@
                 </table>
             </div>
             <div id="content">
-            <p>can you see this</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p>
+                <form method="post" action="scripts/registerscript.php">
+                    <table>
+                        <tr>
+                            <td>Email:</td>
+                            <td><input type="email" name="email"></td>
+                        </tr>
+                        <tr>
+                            <td>Password:</td>
+                            <td><input type="password" name="password"></td>
+                        </tr>
+                        <tr>
+                            <td>First Name:</td>
+                            <td><input type="text" name="firstname"></td>
+                        </tr>
+                        <tr>
+                            <td>Second Name:</td>
+                            <td><input type="text" name="secondname"></td>
+                        </tr>
+                        <tr>
+                            <td>Date of Birth:</td>
+                            <td><input type="text" name="dob" id="datepicker"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="submit" value="submit"></td>
+                        </tr>
+                    </table>
+                </form>
             </div>
             <div id="footer">
                 <table id="footerTable">

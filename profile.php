@@ -27,7 +27,6 @@
                 </table>
             </div>
             <div id="content">
-            <p>can you see this</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p>
             </div>
             <div id="footer">
                 <table id="footerTable">
