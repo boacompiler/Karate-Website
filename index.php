@@ -1,3 +1,4 @@
+<?php include 'scripts/base.php'; ?>
 <html>
     <head>
         <title>Y/P/M/D</title>
