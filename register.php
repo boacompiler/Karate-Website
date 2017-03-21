@@ -55,6 +55,10 @@
                             <td><input type="password" name="password"></td>
                         </tr>
                         <tr>
+                            <td>Re-enter Password:</td>
+                            <td><input type="password" name="password2"></td>
+                        </tr>
+                        <tr>
                             <td>First Name:</td>
                             <td><input type="text" name="firstname"></td>
                         </tr>

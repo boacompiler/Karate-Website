@@ -2,12 +2,18 @@
     session_start();
     $email=$_POST['email'];
     $password=$_POST['password'];
+    $password2=$_POST['password2'];
     $firstname=$_POST['firstname'];
     $secondname=$_POST['secondname'];
     $dob=$_POST['dob'];
-    if($email == '' or $password == '' or $firstname == '' or $secondname == '' or $dob == '')
+    if($email == '' or $password == '' or $password2 == '' or $firstname == '' or $secondname == '' or $dob == '')
     {
         $_SESSION['errorregister'] = 'Please complete all fields';
+        header("Location: /register.php");
+    }
+    elseif($password !== $password2)
+    {
+        $_SESSION['errorregister'] = 'Passwords do not match';
         header("Location: /register.php");
     }
     else
