@@ -2,6 +2,7 @@
     session_start();
     $email=$_POST['email'];
     $password=$_POST['password'];
+    $password=crypt($password, 'KYT5NfCA5nfnJYvbfeQAlw4b4ON02dfz');
     $conn=new mysqli("localhost","root","password","website");
     if ($conn->connect_error)
     {

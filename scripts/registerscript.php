@@ -26,6 +26,7 @@
         }
         else
         {
+            $password = crypt($password, 'KYT5NfCA5nfnJYvbfeQAlw4b4ON02dfz');
             $sql = "INSERT INTO `user` (`admin`, `namefirst`, `namesecond`, `email`, `password`, `dateofbirth`) VALUES ('0', '$firstname', '$secondname', '$email', '$password', '$dob');";
             if( $conn->query($sql))
             {
