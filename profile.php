@@ -13,7 +13,16 @@
     <body>
         <div id="wrapper">
             <div id="header">
-                <h1>Y/P/M/D</h1>
+                <h1><a href="index.php">Y/P/M/D</a></h1>
+                <div id="loginindicator">
+                    <?php if(isset($_SESSION['loggedin'])){ ?>
+                        you are logged in as <?php echo $_SESSION['firstname']; ?><br>
+                        <a href="scripts/logoutscript.php">Logout</a>
+                    <?php } else { ?>
+                        you are not logged in <br>
+                        <a href="login.php">Login</a>
+                    <?php } ?>
+                </div>
                 <table id="navTable">
                     <tr>
                         <td><a href="yoga.html"><div>Yoga</div></a></td>
