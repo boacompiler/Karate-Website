@@ -27,6 +27,7 @@
                 </table>
             </div>
             <div id="content">
+                <?php if(isset($_SESSION['errorlogin'])){ echo "<p style=\"color:red;\">".$_SESSION['errorlogin']."</p>"; unset($_SESSION['errorlogin']); } ?>
                 <?php if(isset($_SESSION['loggedin'])){ ?>
                 <p>You are currently logged in as <?php echo $_SESSION['firstname']; ?>. <a href="scripts/logoutscript.php">Logout</a></p>
                 <?php } else { ?>

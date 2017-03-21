@@ -13,6 +13,7 @@
     if ($result->num_rows == 1) 
     {
         $row = $result->fetch_assoc();
+        session_unset();
         $_SESSION['loggedin'] = 'true';  
         $_SESSION['admin'] = $row['admin'];
         $_SESSION['firstname'] = $row['namefirst'];
@@ -23,7 +24,8 @@
     }
     else
     {
-        echo "something went wrong";
+        $_SESSION['errorlogin'] = 'email or password are incorrect';
+        header("Location: /login.php");
     }
     $conn->close();
     die();

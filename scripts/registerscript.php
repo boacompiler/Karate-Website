@@ -5,38 +5,46 @@
     $firstname=$_POST['firstname'];
     $secondname=$_POST['secondname'];
     $dob=$_POST['dob'];
-    $conn=new mysqli("localhost","root","password","website"); 
-    if ($conn->connect_error)
+    if($email == '' or $password == '' or $firstname == '' or $secondname == '' or $dob == '')
     {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    $sql = "SELECT * FROM user WHERE email='$email'";
-    $checkemail = $conn->query($sql);
-    if($checkemail->num_rows >= 1)
-    {
-        echo "uh oh";
+        $_SESSION['errorregister'] = 'Please complete all fields';
+        header("Location: /register.php");
     }
     else
     {
-        echo $firstname;
-        echo $secondname;
-        echo $email;
-        echo $password;
-        echo $dob;
-        $sql = "INSERT INTO `user` (`admin`, `namefirst`, `namesecond`, `email`, `password`, `dateofbirth`) VALUES ('0', '$firstname', '$secondname', '$email', '$password', '$dob');";
-        if( $conn->query($sql))
+        $conn=new mysqli("localhost","root","password","website"); 
+        if ($conn->connect_error)
         {
-            echo "worked";
-            $_SESSION['email'] = $email;
-            header("Location: /profile.php");
+            die("Connection failed: " . $conn->connect_error);
+        }
+        $sql = "SELECT * FROM user WHERE email='$email'";
+        $checkemail = $conn->query($sql);
+        if($checkemail->num_rows >= 1)
+        {
+            $_SESSION['errorregister'] = 'That email is already in use';
+            header("Location: /register.php");
         }
         else
         {
-            echo "didn't work";
-            
-        }
-    } 
-    echo "finish";
-    $conn->close();
+            $sql = "INSERT INTO `user` (`admin`, `namefirst`, `namesecond`, `email`, `password`, `dateofbirth`) VALUES ('0', '$firstname', '$secondname', '$email', '$password', '$dob');";
+            if( $conn->query($sql))
+            {
+                session_unset();
+                $_SESSION['loggedin'] = 'true';
+                $_SESSION['admin'] = '0';
+                $_SESSION['firstname'] = $firstname;
+                $_SESSION['secondname'] = $secondname;
+                $_SESSION['email'] = $email;
+                $_SESSION['dob'] = $dob;
+                header("Location: /profile.php");
+            }
+            else
+            {
+                $_SESSION['errorregister'] = 'Something went wrong, try again later';
+                header("Location: /register.php");
+            }
+        } 
+        $conn->close();
+    }
     die();
 ?>

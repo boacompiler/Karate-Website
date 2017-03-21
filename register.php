@@ -34,6 +34,7 @@
                 </table>
             </div>
             <div id="content">
+                <?php if(isset($_SESSION['errorregister'])){ echo "<p style=\"color:red;\">".$_SESSION['errorregister']."</p>"; unset($_SESSION['errorregister']); } ?>
                 <form method="post" action="scripts/registerscript.php">
                     <table>
                         <tr>
