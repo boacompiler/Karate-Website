@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 21, 2017 at 05:16 PM
+-- Generation Time: Mar 21, 2017 at 06:39 PM
 -- Server version: 5.5.54-0+deb8u1
 -- PHP Version: 5.6.29-0+deb8u1
 
@@ -45,7 +45,15 @@ CREATE TABLE IF NOT EXISTS `class` (
   `timeslot` int(11) NOT NULL,
   `teacher` int(11) NOT NULL,
   `price` decimal(10,0) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `class`
+--
+
+INSERT INTO `class` (`classid`, `discipline`, `name`, `description`, `timeslot`, `teacher`, `price`) VALUES
+(1, 1, 'Yoga Class', 'Enjoy yoga with Ruth. Relax and find inner peace as she guides you in the mystic Hindu art of the yogi.', 1, 66, 10),
+(2, 2, 'Pilates Class', 'Get fit with Ruth in this rigorous workout. Improve your balance and alleviate lower back pain using the 20th century''s preeminent exercise regime. ', 2, 66, 15);
 
 -- --------------------------------------------------------
 
@@ -54,10 +62,20 @@ CREATE TABLE IF NOT EXISTS `class` (
 --
 
 CREATE TABLE IF NOT EXISTS `discipline` (
-  `disciplineid` int(11) NOT NULL,
+`disciplineid` int(11) NOT NULL,
   `name` varchar(32) NOT NULL,
   `description` varchar(256) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `discipline`
+--
+
+INSERT INTO `discipline` (`disciplineid`, `name`, `description`) VALUES
+(1, 'Yoga', 'yoga description'),
+(2, 'Pilates', 'Pilates description'),
+(3, 'Martial Arts', 'Martial Arts desu'),
+(4, 'Dance', 'Dance des');
 
 -- --------------------------------------------------------
 
@@ -81,7 +99,15 @@ CREATE TABLE IF NOT EXISTS `images` (
 CREATE TABLE IF NOT EXISTS `room` (
 `roomid` int(11) NOT NULL,
   `name` varchar(32) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `room`
+--
+
+INSERT INTO `room` (`roomid`, `name`) VALUES
+(1, 'Gym'),
+(2, 'Hall');
 
 -- --------------------------------------------------------
 
@@ -94,7 +120,18 @@ CREATE TABLE IF NOT EXISTS `timeslot` (
   `timebegin` time NOT NULL,
   `timeend` time NOT NULL,
   `room` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `timeslot`
+--
+
+INSERT INTO `timeslot` (`timeslotid`, `timebegin`, `timeend`, `room`) VALUES
+(1, '19:15:00', '20:15:00', 1),
+(2, '20:30:00', '21:30:00', 1),
+(3, '17:00:00', '19:00:00', 1),
+(4, '19:15:00', '20:15:00', 2),
+(5, '20:30:00', '21:30:00', 2);
 
 -- --------------------------------------------------------
 
@@ -110,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(128) NOT NULL,
   `password` varchar(128) NOT NULL,
   `dateofbirth` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
@@ -118,7 +155,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`userid`, `admin`, `namefirst`, `namesecond`, `email`, `password`, `dateofbirth`) VALUES
 (64, 0, 'Bobby', 'Tables', 'test@fake.com', 'KYVdODyE7VfF6', '2013-08-27'),
-(65, 0, 'Bruce', 'Wayne', 'batman@gotham.com', 'KYVdODyE7VfF6', '2013-05-15');
+(65, 0, 'Bruce', 'Wayne', 'batman@gotham.com', 'KYVdODyE7VfF6', '2013-05-15'),
+(66, 1, 'Ruth', 'Thompson', 'rthompson@ypmd.com', 'KYVdODyE7VfF6', '1980-04-10'),
+(67, 1, 'David', 'Thompson', 'dthompson@ypmd.com', 'KYVdODyE7VfF6', '1978-03-08'),
+(68, 1, 'Chris', 'Madeline', 'cmadeline@ypmd.com', 'KYVdODyE7VfF6', '1979-08-16');
 
 --
 -- Indexes for dumped tables
@@ -135,6 +175,12 @@ ALTER TABLE `booking`
 --
 ALTER TABLE `class`
  ADD PRIMARY KEY (`classid`);
+
+--
+-- Indexes for table `discipline`
+--
+ALTER TABLE `discipline`
+ ADD PRIMARY KEY (`disciplineid`);
 
 --
 -- Indexes for table `images`
@@ -168,7 +214,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `class`
 --
 ALTER TABLE `class`
-MODIFY `classid` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `classid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `discipline`
+--
+ALTER TABLE `discipline`
+MODIFY `disciplineid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `images`
 --
@@ -178,17 +229,17 @@ MODIFY `imageid` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-MODIFY `roomid` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `roomid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `timeslot`
 --
 ALTER TABLE `timeslot`
-MODIFY `timeslotid` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `timeslotid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=66;
+MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=69;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
