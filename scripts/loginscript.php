@@ -13,8 +13,12 @@
     if ($result->num_rows == 1) 
     {
         $row = $result->fetch_assoc();
-        echo $row["dateofbirth"];
-        $_SESSION['email'] = $email;
+        $_SESSION['loggedin'] = 'true';  
+        $_SESSION['admin'] = $row['admin'];
+        $_SESSION['firstname'] = $row['namefirst'];
+        $_SESSION['secondname'] = $row['namesecond'];
+        $_SESSION['email'] = $row['email'];
+        $_SESSION['dob'] = $row['dateofbirth'];
         header("Location: /profile.php");
     }
     else

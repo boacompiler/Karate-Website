@@ -27,6 +27,9 @@
                 </table>
             </div>
             <div id="content">
+                <?php if(isset($_SESSION['loggedin'])){ ?>
+                <p>You are currently logged in as <?php echo $_SESSION['firstname']; ?>. <a href="scripts/logoutscript.php">Logout</a></p>
+                <?php } else { ?>
                 <form method="post" action="scripts/loginscript.php">
                     <table>
                         <tr>
@@ -43,13 +46,14 @@
                     </table>
                 </form>
                 <p>Don't have an account? <a href="register.php">Register</a></p>
+                <?php } ?>
             </div>
             <div id="footer">
                 <table id="footerTable">
                     <tr>
                         <td><a href="about.html"><div>About</div></a></td>
                         <td><a href="contact.html"><div>Contact</div></a></td>
-                        <td><a href="login.html"><div>Login</div></a></td>
+                        <td><a href="login.php"><div>Login</div></a></td>
                         <td><a href="admin.html"><div>Admin</div></a></td>
                     </tr>
                 </table>
