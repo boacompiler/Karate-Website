@@ -36,8 +36,10 @@
                 </table>
             </div>
             <div id="content">
+            <h2>Martial Arts</h2>
+            <p>Martial arts are chiefly taught by master Chris Madeline</p>
             <h2>Classes</h2>
-            <table>
+            <table style="width:50%">
             <?php
                 $conn=new mysqli("localhost","root","password","website");
                 if ($conn->connect_error)
@@ -50,7 +52,7 @@
                 {
                     setlocale(LC_MONETARY, 'en_GB.UTF-8');
                     $gbp = money_format('%n',$row['price']);
-                    echo "<tr><td>".$row['name']."</td><td>".$gbp."</td></tr>";    
+                    echo "<tr style=\"font-weight:bold;\"><td>".$row['name']."</td><td>".$gbp."</td></tr>";    
                     echo "<tr><td colspan=2>".$row['description']."</td></tr>";
                 }
 
