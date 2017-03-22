@@ -38,6 +38,7 @@
             {
                 session_unset();
                 $_SESSION['loggedin'] = 'true';
+                $_SESSION['userid'] = $row['userid'];
                 $_SESSION['admin'] = '0';
                 $_SESSION['firstname'] = $firstname;
                 $_SESSION['secondname'] = $secondname;

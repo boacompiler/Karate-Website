@@ -38,6 +38,7 @@
             <div id="content">
                 <?php
                     echo "<p>".$_SESSION['loggedin']."</p>";
+                    echo "<p>".$_SESSION['userid']."</p>";
                     echo "<p>".$_SESSION['admin']."</p>";
                     echo "<p>".$_SESSION['firstname']."</p>";
                     echo "<p>".$_SESSION['secondname']."</p>";

@@ -16,6 +16,7 @@
         $row = $result->fetch_assoc();
         session_unset();
         $_SESSION['loggedin'] = 'true';  
+        $_SESSION['userid'] = $row['userid'];
         $_SESSION['admin'] = $row['admin'];
         $_SESSION['firstname'] = $row['namefirst'];
         $_SESSION['secondname'] = $row['namesecond'];
