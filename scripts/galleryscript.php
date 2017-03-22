@@ -8,11 +8,36 @@
     $result = $conn->query($sql);
     while($row = $result->fetch_assoc())
     {
+        
         echo "<table style=\"width:100%\">";
         setlocale(LC_MONETARY, 'en_GB.UTF-8');
         $gbp = money_format('%n',$row['price']);
         $classid = $row['classid'];
-        echo "<tr style=\"font-weight:bold;\"><td>".$row['name']."</td><td>".$gbp."</td><td><form method=\"post\" action=\"scripts/signupscript.php\"><input type=\"hidden\" name=\"signupclassid\" value=\"".$classid."\"><input type=\"submit\" value=\"Sign Up\"></form></td></tr>";    
+        $userid = $_SESSION['userid'];
+
+        $form = '';
+        if(isset($_SESSION['loggedin']))
+        {
+            $connbooked=new mysqli("localhost","root","password","website");
+            if ($connbooked->connect_error)
+            {
+                die("Connection failed: " . $connbooked->connect_error);
+            }
+            $booksql = "SELECT * FROM booking WHERE classid = '$classid' AND userid = '$userid'"; 
+            $bookresult = $connbooked->query($booksql);
+            $connbooked->close();
+
+            $disable = '';
+
+            if($bookresult->num_rows >= 1)
+            {
+                $disable = 'disabled="disabled"';
+            }
+            $form = "<form method=\"post\" action=\"scripts/signupscript.php\"><input type=\"hidden\" name=\"signupclassid\" value=\"".$classid."\"><input type=\"submit\" value=\"Sign Up\" ".$disable."></form>";
+        }
+        
+
+        echo "<tr style=\"font-weight:bold;\"><td>".$row['name']."</td><td>".$gbp."</td><td>".$form."</td></tr>";    
         echo "<tr><td colspan=2>".$row['description']."</td></tr>";
         echo "</table>";
 
