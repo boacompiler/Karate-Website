@@ -36,15 +36,17 @@
                 </table>
             </div>
             <div id="content">
+                <h2>Profile</h2>
+                <?php if(isset($_SESSION['loggedin'])){ ?>
+                <p>Hello <?php echo $_SESSION['firstname']." ".$_SESSION['secondname']; ?>. These are your currently enroled courses:</p> 
                 <?php
-                    echo "<p>".$_SESSION['loggedin']."</p>";
-                    echo "<p>".$_SESSION['userid']."</p>";
-                    echo "<p>".$_SESSION['admin']."</p>";
-                    echo "<p>".$_SESSION['firstname']."</p>";
-                    echo "<p>".$_SESSION['secondname']."</p>";
-                    echo "<p>".$_SESSION['email']."</p>";
-                    echo "<p>".$_SESSION['dob']."</p>";
+                    $profileuserid = $_SESSION['userid'];
+                    include "scripts/enroledscript.php"; 
                 ?>
+                <?php } else { ?>
+                    you are not logged in <br>
+                    <a href="login.php">Login</a>
+                <?php } ?>
             </div>
             <div id="footer">
                 <table id="footerTable">
