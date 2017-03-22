@@ -39,7 +39,6 @@
             <h2>Martial Arts</h2>
             <p>Martial arts are chiefly taught by master Chris Madeline</p>
             <h2>Classes</h2>
-            <table style="width:50%">
             <?php
                 $conn=new mysqli("localhost","root","password","website");
                 if ($conn->connect_error)
@@ -48,17 +47,48 @@
                 }
                 $sql = "SELECT * FROM class WHERE discipline = 3";
                 $result = $conn->query($sql);
+                echo "<table style=\"width:50%\">";
                 while($row = $result->fetch_assoc())
                 {
                     setlocale(LC_MONETARY, 'en_GB.UTF-8');
                     $gbp = money_format('%n',$row['price']);
+                    $classid = $row['classid'];
                     echo "<tr style=\"font-weight:bold;\"><td>".$row['name']."</td><td>".$gbp."</td></tr>";    
                     echo "<tr><td colspan=2>".$row['description']."</td></tr>";
+
+                    $conn2=new mysqli("localhost","root","password","website");
+                    if ($conn2->connect_error)
+                    {
+                        die("Connection failed: " . $conn2->connect_error);
+                    }
+                    $imagesql = "SELECT * FROM images WHERE classid = ".$classid;
+                    $imageresult = $conn2->query($imagesql);
+                    if($imageresult->num_rows > 0)
+                    {
+                        echo "<script>";
+                        echo "var images".$classid." = new Array();";
+                        $i = 0;
+                        while($imagerow = $imageresult->fetch_assoc())
+                        {
+                            //echo '<img src="data:image/jpeg;base64,'.base64_encode( $imagerow['image'] ).'"/>';
+                            echo "images".$classid."[".$i."]=".base64_encode( $imagerow['image'] ).";";
+                            $i++;
+                        }
+                        echo "var count".$classid."= 0;";
+                        echo "function next".$classid."(){";
+                        echo "count".$classid."++;";
+                        echo "document.getElementById(\"gallery".$classid."\").src=images".$classid."[count".$classid."];";
+                        echo "}";
+                        echo "document.getElementById(\"gallery".$classid."\").src=images".$classid."[0];";
+                        echo "</script>";
+                        echo "<img onclick=\"next".$classid."();return false;\" id=\"gallery".$classid."\"></img>";
+                    }
+                    $conn2->close();
                 }
+                echo "</table>";
 
                 $conn->close();
             ?>    
-            </table>
             </div>
             <div id="footer">
                 <table id="footerTable">
