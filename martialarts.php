@@ -74,15 +74,17 @@
                         {
                             //echo '<img src="data:image/jpeg;base64,'.base64_encode( $imagerow['image'] ).'"/>';
                             //echo "images".$classid."[".$i."]=".base64_encode( $imagerow['image'] ).";";
-                            echo "images".$classid."[".$i."]=\"test.jpg\";";
+                            echo "images".$classid."[".$i."]= new Image();";
+                            echo "images".$classid."[".$i."].src = \"data:image/jpeg;base64,".base64_encode( $imagerow['image'] )."\";"; 
                             $i++;
                         }
                         echo "var count".$classid."= 0;";
                         echo "function next".$classid."(){";
                         echo "count".$classid."++;";
-                        echo "document.getElementById(\"gallery".$classid."\").src=images".$classid."[count".$classid."];";
+                        echo "if(count".$classid." == images".$classid.".length) { count".$classid." = 0;}";
+                        echo "document.getElementById(\"gallery".$classid."\").src=images".$classid."[count".$classid."].src;";
                         echo "}";
-                        echo "document.getElementById(\"gallery".$classid."\").src=images".$classid."[0];";
+                        echo "document.getElementById(\"gallery".$classid."\").src=images".$classid."[0].src;";
                         echo "</script>";
                     }
                     $conn2->close();
