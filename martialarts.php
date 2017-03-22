@@ -66,7 +66,7 @@
                     $imageresult = $conn2->query($imagesql);
                     if($imageresult->num_rows > 0)
                     {
-                        echo "<img onclick=\"next".$classid."();return false;\" id=\"gallery".$classid."\"></img>";
+                        echo "<img onclick=\"next".$classid."();return false;\" id=\"gallery".$classid."\" class=\"gallery\"></img>";
                         echo "<script>";
                         echo "var images".$classid." = new Array();";
                         $i = 0;
