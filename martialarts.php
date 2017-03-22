@@ -41,6 +41,7 @@
             <h2>Classes</h2>
             <?php
                 $discipline = 3;
+                $_SESSION['page'] = '/martialarts.php';
                 include 'scripts/galleryscript.php';
             ?>
             </div>

@@ -8,11 +8,11 @@
     $result = $conn->query($sql);
     while($row = $result->fetch_assoc())
     {
-        echo "<table style=\"width:50%\">";
+        echo "<table style=\"width:100%\">";
         setlocale(LC_MONETARY, 'en_GB.UTF-8');
         $gbp = money_format('%n',$row['price']);
         $classid = $row['classid'];
-        echo "<tr style=\"font-weight:bold;\"><td>".$row['name']."</td><td>".$gbp."</td></tr>";    
+        echo "<tr style=\"font-weight:bold;\"><td>".$row['name']."</td><td>".$gbp."</td><td><form method=\"post\" action=\"scripts/signupscript.php\"><input type=\"hidden\" name=\"signupclassid\" value=\"".$classid."\"><input type=\"submit\" value=\"Sign Up\"></form></td></tr>";    
         echo "<tr><td colspan=2>".$row['description']."</td></tr>";
         echo "</table>";
 
