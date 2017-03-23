@@ -1,16 +1,32 @@
 <?php
     include('base.php');
+
+    $classid = $_POST['cancelclassid']; 
+    $userid = $_SESSION['userid'];
+
     $conn=new mysqli($dbhost,$dbuser,$dbpass,$dbname);
     if ($conn->connect_error)
     {
         die("Connection failed: " . $conn->connect_error);
     }
-    $sql = "SELECT * FROM class WHERE discipline = 3";
+    $sql = "SELECT * FROM booking WHERE classid = $classid AND userid = $userid";
     $result = $conn->query($sql);
-    while($row = $result->fetch_assoc())
+    if($result->num_rows == 1)
     {
-        echo $row['name'].'<br>';
+        $sqldelete = "DELETE FROM booking WHERE classid = $classid AND userid = $userid";
+        if($conn->query($sqldelete))
+        {
+            header("Location: /profile.php");
+        }
+        else
+        {
+            echo "Database error";
+        }
     }
-    
+    else
+    {
+        echo "Database error";
+    }
+    echo "fin";
     $conn->close();
 ?>
