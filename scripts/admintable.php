@@ -26,7 +26,7 @@
         $result = $conn->query($sql);
         $sql = "SHOW COLUMNS FROM $table";
         $columnresult = $conn->query($sql);
-        echo '<table>';
+        echo '<table style="word-wrap:break-word;">';
         echo '<tr style="font-weight:bold;">';
         while($row = $columnresult->fetch_assoc())
         {
@@ -59,6 +59,16 @@
             echo '<input type="submit" value="Delete"></form></td>';
             echo '</tr>'; 
         }
+        echo '<tr>'; 
+        echo '<form method="post" action="scripts/admininsert.php">';
+        echo '<input type="hidden" name="table" value="'.$table.'">';
+        for ($i=0; $i < mysqli_num_fields($result); $i++)
+        {
+           echo '<td><input type="text" name="insert'.$i.'"></td>'; 
+        }
+        echo '<td><input type="submit" value="Insert"></td>';
+        echo '</form>';
+        echo '</tr>'; 
         echo '</table>';
     }
     $conn->close();
