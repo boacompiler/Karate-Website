@@ -43,7 +43,7 @@
                 else
                 {
             ?>
-            <p>You do not have administrator priveleges.</p>
+            <p>You do not have administrator privileges.</p>
             <?php } ?>
             </div>
             <div id="footer">
