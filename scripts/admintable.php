@@ -20,6 +20,8 @@
     $table = $_POST['tables'];
     if($table !== '')
     {
+        $field = '';
+
         $sql = "SELECT * FROM $table";
         $result = $conn->query($sql);
         $sql = "SHOW COLUMNS FROM $table";
@@ -29,16 +31,33 @@
         while($row = $columnresult->fetch_assoc())
         {
             echo '<td>'. $row['Field'].'</td>';
+            if($field == '')
+            {
+                $field = $row['Field'];
+            }
         }
         echo '</tr>';
         while($row = $result->fetch_assoc())
         {
-           echo '<tr>'; 
-           foreach($row as $field)
-           {
-              echo '<td>' . htmlspecialchars($field) . '</td>'; 
-           }
-           echo '</tr>'; 
+            $id = '';
+            echo '<tr>'; 
+            foreach($row as $column)
+            {
+                echo '<td>' . htmlspecialchars($column) . '</td>'; 
+                if($id == '')
+                {
+                    $id = $column;
+                }
+            }
+            //edit
+            echo '<td><form method="post" action=""><input type="submit" value="Edit"></form></td>';
+            //delete
+            echo '<td><form method="post" action="scripts/admindelete.php">';  
+            echo '<input type="hidden" name="table" value="'.$table.'">';
+            echo '<input type="hidden" name="id" value="'.$id.'">';
+            echo '<input type="hidden" name="field" value="'.$field.'">';
+            echo '<input type="submit" value="Delete"></form></td>';
+            echo '</tr>'; 
         }
         echo '</table>';
     }
