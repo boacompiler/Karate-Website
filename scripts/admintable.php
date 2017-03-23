@@ -22,7 +22,15 @@
     {
         $sql = "SELECT * FROM $table";
         $result = $conn->query($sql);
+        $sql = "SHOW COLUMNS FROM $table";
+        $columnresult = $conn->query($sql);
         echo '<table>';
+        echo '<tr style="font-weight:bold;">';
+        while($row = $columnresult->fetch_assoc())
+        {
+            echo '<td>'. $row['Field'].'</td>';
+        }
+        echo '</tr>';
         while($row = $result->fetch_assoc())
         {
            echo '<tr>'; 
