@@ -39,6 +39,7 @@
             <?php
                 if(isset($_SESSION['loggedin']) and $_SESSION['admin'] == '1')
                 {
+                    include 'scripts/admintable.php';
                 }
                 else
                 {
