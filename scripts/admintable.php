@@ -50,7 +50,11 @@
                 }
             }
             //edit
-            echo '<td><form method="post" action=""><input type="submit" value="Edit"></form></td>';
+            echo '<td><form method="post" action="scripts/adminedit.php">';
+            echo '<input type="hidden" name="table" value="'.$table.'">';
+            echo '<input type="hidden" name="id" value="'.$id.'">';
+            echo '<input type="hidden" name="field" value="'.$field.'">';
+            echo '<input type="submit" value="Edit"></form></td>';
             //delete
             echo '<td><form method="post" action="scripts/admindelete.php">';  
             echo '<input type="hidden" name="table" value="'.$table.'">';
