@@ -1,5 +1,6 @@
 <?php
-    $conn=new mysqli("localhost","root","password","website");
+    include('base.php');
+    $conn=new mysqli($dbhost,$dbuser,$dbpass,$dbname);
     if ($conn->connect_error)
     {
         die("Connection failed: " . $conn->connect_error);
@@ -18,14 +19,8 @@
         $form = '';
         if(isset($_SESSION['loggedin']))
         {
-            $connbooked=new mysqli("localhost","root","password","website");
-            if ($connbooked->connect_error)
-            {
-                die("Connection failed: " . $connbooked->connect_error);
-            }
             $booksql = "SELECT * FROM booking WHERE classid = '$classid' AND userid = '$userid'"; 
-            $bookresult = $connbooked->query($booksql);
-            $connbooked->close();
+            $bookresult = $conn->query($booksql);
 
             $disable = '';
 
@@ -41,13 +36,8 @@
         echo "<tr><td colspan=2>".$row['description']."</td></tr>";
         echo "</table>";
 
-        $conn2=new mysqli("localhost","root","password","website");
-        if ($conn2->connect_error)
-        {
-            die("Connection failed: " . $conn2->connect_error);
-        }
         $imagesql = "SELECT * FROM images WHERE classid = ".$classid;
-        $imageresult = $conn2->query($imagesql);
+        $imageresult = $conn->query($imagesql);
         if($imageresult->num_rows > 0)
         {
             echo "<img onclick=\"next".$classid."();return false;\" id=\"gallery".$classid."\" class=\"gallery\"></img>";
@@ -79,7 +69,6 @@
             echo '<input type="submit" value="Upload Image" name="submit">';
             echo '</form>';
         }
-        $conn2->close();
     }
 
     $conn->close();
