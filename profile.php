@@ -25,13 +25,13 @@
                 </div>
                 <table id="navTable">
                     <tr>
-                        <td><a href="yoga.html"><div>Yoga</div></a></td>
+                        <td><a href="yoga.php"><div>Yoga</div></a></td>
                         <td><p>/</p></td>
-                        <td><a href="pilates.html"><div>Pilates</div></a></td>
+                        <td><a href="pilates.php"><div>Pilates</div></a></td>
                         <td><p>/</p></td>
-                        <td><a href="martialArts.html"><div>Martial Arts</div></a></td>
+                        <td><a href="martialarts.php"><div>Martial Arts</div></a></td>
                         <td><p>/</p></td>
-                        <td><a href="dance.html"><div>Dance</div></a></td>
+                        <td><a href="dance.php"><div>Dance</div></a></td>
                     </tr>
                 </table>
             </div>
@@ -51,10 +51,10 @@
             <div id="footer">
                 <table id="footerTable">
                     <tr>
-                        <td><a href="about.html"><div>About</div></a></td>
-                        <td><a href="contact.html"><div>Contact</div></a></td>
+                        <td><a href="about.php"><div>About</div></a></td>
+                        <td><a href="contact.php"><div>Contact</div></a></td>
                         <td><a href="login.php"><div>Login</div></a></td>
-                        <td><a href="admin.html"><div>Admin</div></a></td>
+                        <td><a href="admin.php"><div>Admin</div></a></td>
                     </tr>
                 </table>
             </div>
