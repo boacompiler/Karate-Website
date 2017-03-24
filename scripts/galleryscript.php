@@ -71,6 +71,14 @@
             echo "document.getElementById(\"gallery".$classid."\").src=images".$classid."[0].src;";
             echo "</script>";
         }
+        if(isset($_SESSION['loggedin']) and $_SESSION['admin'] == '1')
+        {
+            echo '<form action="scripts/adminupload.php" method="post" enctype="multipart/form-data">'; 
+            echo '<input type="hidden" name="classid" value="'.$classid.'">';
+            echo '<input type="file" name="fileToUpload" id="fileToUpload">';
+            echo '<input type="submit" value="Upload Image" name="submit">';
+            echo '</form>';
+        }
         $conn2->close();
     }
 
