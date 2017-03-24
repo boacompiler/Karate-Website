@@ -1,9 +1,9 @@
 <?php
-    session_start();
+    include('base.php');
     $email=$_POST['email'];
     $password=$_POST['password'];
     $password=crypt($password, 'KYT5NfCA5nfnJYvbfeQAlw4b4ON02dfz');
-    $conn=new mysqli("localhost","root","password","website");
+    $conn=new mysqli($dbhost,$dbuser,$dbpass,$dbname);
     if ($conn->connect_error)
     {
         die("Connection failed: " . $conn->connect_error);
