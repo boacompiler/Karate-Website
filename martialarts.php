@@ -29,7 +29,7 @@
                         <td><p>/</p></td>
                         <td><a href="pilates.php"><div>Pilates</div></a></td>
                         <td><p>/</p></td>
-                        <td><a href="martialArts.php"><div>Martial Arts</div></a></td>
+                        <td><a href="martialarts.php"><div>Martial Arts</div></a></td>
                         <td><p>/</p></td>
                         <td><a href="dance.php"><div>Dance</div></a></td>
                     </tr>
