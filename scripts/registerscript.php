@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    include('base.php');
     $email=$_POST['email'];
     $password=$_POST['password'];
     $password2=$_POST['password2'];
@@ -18,7 +18,7 @@
     }
     else
     {
-        $conn=new mysqli("localhost","root","password","website"); 
+        $conn=new mysqli($dbhost,$dbuser,$dbpass,$dbname);
         if ($conn->connect_error)
         {
             die("Connection failed: " . $conn->connect_error);
@@ -36,6 +36,9 @@
             $sql = "INSERT INTO `user` (`admin`, `namefirst`, `namesecond`, `email`, `password`, `dateofbirth`) VALUES ('0', '$firstname', '$secondname', '$email', '$password', '$dob');";
             if( $conn->query($sql))
             {
+                $sql = "SELECT * FROM user WHERE password='$password' AND email='$email'";
+                $result = $conn->query($sql);
+                $row = $result->fetch_assoc();
                 session_unset();
                 $_SESSION['loggedin'] = 'true';
                 $_SESSION['userid'] = $row['userid'];
