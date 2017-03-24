@@ -17,7 +17,7 @@
         }
         else
         {
-            $sql = $sql.$p.',';
+            $sql = $sql.'"'.$p.'",';
         }
     } 
     $sql = substr($sql, 0, -1);
@@ -29,6 +29,7 @@
     else
     {
         echo 'Cannot Insert';
+        echo '<br>'.$sql;
     }
     $conn->close();
 ?>
