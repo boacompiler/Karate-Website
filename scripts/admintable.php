@@ -4,14 +4,14 @@
     {
         die("Connection failed: " . $conn->connect_error);
     }
-    $sql = "show tables;";
+    $sql = "SHOW TABLES;";
     $result = $conn->query($sql);
     echo '<form method="post">';
     echo '<select name="tables">';
 
     while($row = $result->fetch_assoc())
     {
-        echo '<option value="'.$row['Tables_in_website'].'">'.$row['Tables_in_website'].'</option>';
+        echo '<option value="'.$row['Tables_in_'.$dbname].'">'.$row['Tables_in_'.$dbname].'</option>';
     }
     echo '</select>';
     echo '<input type="submit" value="Load">';
