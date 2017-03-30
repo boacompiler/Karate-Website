@@ -16,7 +16,7 @@
         $sqldelete = "DELETE FROM booking WHERE classid = $classid AND userid = $userid";
         if($conn->query($sqldelete))
         {
-            header("Location: /profile.php");
+            header("Location: ../profile.php");
         }
         else
         {

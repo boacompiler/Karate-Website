@@ -41,7 +41,7 @@
             <h2>Classes</h2>
             <?php
                 $discipline = 1;
-                $_SESSION['page'] = '/yoga.php';
+                $_SESSION['page'] = '../yoga.php';
                 include 'scripts/galleryscript.php';
             ?>
             </div>

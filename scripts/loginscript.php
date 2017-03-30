@@ -22,12 +22,12 @@
         $_SESSION['secondname'] = $row['namesecond'];
         $_SESSION['email'] = $row['email'];
         $_SESSION['dob'] = $row['dateofbirth'];
-        header("Location: /profile.php");
+        header("Location: ../profile.php");
     }
     else
     {
         $_SESSION['errorlogin'] = 'email or password are incorrect';
-        header("Location: /login.php");
+        header("Location: ../login.php");
     }
     $conn->close();
     die();

@@ -25,7 +25,7 @@
     $sql = $sql.' WHERE '.$field.' = '.$id.';';
     if($conn->query($sql))
     {
-        header("Location: /admin.php");
+        header("Location: ../admin.php");
     }
     else
     {

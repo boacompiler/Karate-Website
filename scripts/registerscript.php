@@ -9,12 +9,12 @@
     if($email == '' or $password == '' or $password2 == '' or $firstname == '' or $secondname == '' or $dob == '')
     {
         $_SESSION['errorregister'] = 'Please complete all fields';
-        header("Location: /register.php");
+        header("Location: ../register.php");
     }
     elseif($password !== $password2)
     {
         $_SESSION['errorregister'] = 'Passwords do not match';
-        header("Location: /register.php");
+        header("Location: ../register.php");
     }
     else
     {
@@ -28,7 +28,7 @@
         if($checkemail->num_rows >= 1)
         {
             $_SESSION['errorregister'] = 'That email is already in use';
-            header("Location: /register.php");
+            header("Location: ../register.php");
         }
         else
         {
@@ -47,12 +47,12 @@
                 $_SESSION['secondname'] = $secondname;
                 $_SESSION['email'] = $email;
                 $_SESSION['dob'] = $dob;
-                header("Location: /profile.php");
+                header("Location: ../profile.php");
             }
             else
             {
                 $_SESSION['errorregister'] = 'Something went wrong, try again later';
-                header("Location: /register.php");
+                header("Location: ../register.php");
             }
         } 
         $conn->close();

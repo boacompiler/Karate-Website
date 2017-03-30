@@ -41,7 +41,7 @@
             <h2>Classes</h2>
             <?php
                 $discipline = 2;
-                $_SESSION['page'] = '/pilates.php';
+                $_SESSION['page'] = '../pilates.php';
                 include 'scripts/galleryscript.php';
             ?>
             </div>
