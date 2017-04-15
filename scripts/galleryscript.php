@@ -43,6 +43,7 @@
             echo "<img onclick=\"next".$classid."();return false;\" id=\"gallery".$classid."\" class=\"gallery\"></img>";
             echo "<script>";
             echo "var images".$classid." = new Array();";
+            echo "var alts".$classid." = new Array();";
             $i = 0;
             while($imagerow = $imageresult->fetch_assoc())
             {
@@ -50,6 +51,7 @@
                 //echo "images".$classid."[".$i."]=".base64_encode( $imagerow['image'] ).";";
                 echo "images".$classid."[".$i."]= new Image();";
                 echo "images".$classid."[".$i."].src = \"data:image/jpeg;base64,".base64_encode( $imagerow['image'] )."\";"; 
+                echo "alts".$classid."[".$i."] = \"".$imagerow['description']."\";";
                 $i++;
             }
             echo "var count".$classid."= 0;";
@@ -57,8 +59,10 @@
             echo "count".$classid."++;";
             echo "if(count".$classid." == images".$classid.".length) { count".$classid." = 0;}";
             echo "document.getElementById(\"gallery".$classid."\").src=images".$classid."[count".$classid."].src;";
+            echo "document.getElementById(\"gallery".$classid."\").alt=alts".$classid."[count".$classid."];";
             echo "}";
             echo "document.getElementById(\"gallery".$classid."\").src=images".$classid."[0].src;";
+            echo "document.getElementById(\"gallery".$classid."\").alt=alts".$classid."[0];";
             echo "</script>";
         }
         if(isset($_SESSION['loggedin']) and $_SESSION['admin'] == '1')
