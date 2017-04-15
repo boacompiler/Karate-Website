@@ -5,7 +5,7 @@
     {
         die("Connection failed: " . $conn->connect_error);
     }
-    $sql = "SELECT * FROM class WHERE discipline = ".$discipline;
+    $sql = "SELECT * FROM class c INNER JOIN user u ON c.teacher = u.userid INNER JOIN timeslot t ON c.timeslot = t.timeslotid WHERE discipline = ".$discipline;
     $result = $conn->query($sql);
     while($row = $result->fetch_assoc())
     {
@@ -13,6 +13,7 @@
         echo "<table style=\"width:100%\">";
         setlocale(LC_MONETARY, 'en_GB.UTF-8');
         $gbp = money_format('%n',$row['price']);
+        $length = $row['timeend'] - $row['timebegin'];
         $classid = $row['classid'];
         $userid = $_SESSION['userid'];
 
@@ -33,7 +34,10 @@
         
 
         echo "<tr style=\"font-weight:bold;\"><td>".$row['name']."</td><td>".$gbp."</td><td>".$form."</td></tr>";    
+        echo "<tr><td>Start Time: ".substr($row['timebegin'], 0, -3);
+        echo "<tr><td>Duration: ".$length." hours";
         echo "<tr><td colspan=2>".$row['description']."</td></tr>";
+        echo "<tr><td>instructor: ".$row['namefirst']." ".$row['namesecond']."</td></tr>";
         echo "</table>";
 
         $imagesql = "SELECT * FROM images WHERE classid = ".$classid;
