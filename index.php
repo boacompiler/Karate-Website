@@ -36,7 +36,18 @@
                 </table>
             </div>
             <div id="content">
-            <p>can you see this</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p><p>hello world</p>
+                <h2>Welcome to Y/P/M/D</h2>
+                <p>We are a multidisciplinary recreation club for all ages.<br>
+                we offer a variety of classes in four disciplines, taught by our skilled instructors, please browse: 
+                <ul>
+                    <li><a href="yoga.php">Yoga</a></li>
+                    <li><a href="pilates.php">Pilates</a></li>
+                    <li><a href="martialarts.php">Martial Arts</a></li>
+                    <li><a href="dance.php">Dance</a></li>
+                </ul>        
+                Customers with an account benefit with easy online course signup and management!<br>
+                <a href="register.php">Register</a>
+                </p>
             </div>
             <div id="footer">
                 <table id="footerTable">
