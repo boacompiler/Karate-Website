@@ -24,7 +24,7 @@
                 <div id="loginindicator">
                     <?php if(isset($_SESSION['loggedin'])){ ?>
                         you are logged in as <?php echo $_SESSION['firstname']; ?><br>
-                        <a href="scripts/logoutscript.php">Logout</a>
+                        <a href="profile.php">Profile</a> <a href="scripts/logoutscript.php">Logout</a>
                     <?php } else { ?>
                         you are not logged in <br>
                         <a href="login.php">Login</a>
