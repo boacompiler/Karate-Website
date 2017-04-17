@@ -37,6 +37,7 @@
             </div>
             <div id="content">
                 <h2>Contact</h2>
+                <p>Y/P/M/D strives for the best, if your experience was not satisfactory, please contact us immediately.</p>
                 <p>Email Us:
                 <form action="MAILTO:rthompson@ypmd.com" method="post" enctype="text/plain">
                     Name:<br>
@@ -48,7 +49,15 @@
                     <input type="submit" value="Send">
                     <input type="reset" value="Reset">
                 </form>
-                <p>Y/P/M/D strives for the best, if your experience was not satisfactory, please contact us immediately.</p>
+                <dl> 
+                   <dt>Address</dt> 
+                   <dd>26 School Lane</dd> 
+                   <dd>Upper Lochton</dd> 
+                   <dd>Lochton</dd> 
+                   <dd>AB31 8HH</dd> 
+                   <dt>Tel:</dt> 
+                   <dd>077 1558 0442</dd> 
+                </dl>
             </div>
             <div id="footer">
                 <table id="footerTable">
