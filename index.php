@@ -48,6 +48,8 @@
                 Customers with an account benefit with easy online course signup and management!<br>
                 <a href="register.php">Register</a>
                 </p>
+                <img src='images/hall.jpg' alt='the school hall'>
+                <p>The spacious hall where most of our classes are taken</p>
             </div>
             <div id="footer">
                 <table id="footerTable">
