@@ -36,8 +36,8 @@
                 </table>
             </div>
             <div id="content">
-            <h2>Martial Arts</h2>
-            <p>Martial arts are chiefly taught by master Chris Madeline</p>
+            <h2>Pilates</h2>
+            <p>Improve your body with pilates a revolutinary training technique to evenly tone the body, with a focus on core strength and general fitness. Ruth teaches by the book, to provide a improvement for your body and your mind.</p>
             <h2>Classes</h2>
             <?php
                 $discipline = 2;

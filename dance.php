@@ -36,8 +36,8 @@
                 </table>
             </div>
             <div id="content">
-            <h2>Martial Arts</h2>
-            <p>Martial arts are chiefly taught by master Chris Madeline</p>
+            <h2>Dance</h2>
+            <p>Dance is synchronised exercise, a great way to express yourself and stay fit! David teaches and performs many styles of dance in his highly reccomended workshops.</p>
             <h2>Classes</h2>
             <?php
                 $discipline = 4;

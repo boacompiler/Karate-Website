@@ -36,8 +36,8 @@
                 </table>
             </div>
             <div id="content">
-            <h2>Martial Arts</h2>
-            <p>Martial arts are chiefly taught by master Chris Madeline</p>
+            <h2>Yoga</h2>
+            <p>Yoga is a deeply spriritual practice, performed for many years. allow Ruth thompson, our yoga expert to guide you.</p>
             <h2>Classes</h2>
             <?php
                 $discipline = 1;

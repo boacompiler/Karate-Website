@@ -37,7 +37,7 @@
             </div>
             <div id="content">
             <h2>Martial Arts</h2>
-            <p>Martial arts are chiefly taught by master Chris Madeline</p>
+            <p>Martial arts are a spiritural and disciplined practice, not ust self defense. Martial arts are chiefly taught by master Chris Madeline, an expert in karate and tae kwon do.</p>
             <h2>Classes</h2>
             <?php
                 $discipline = 3;
