@@ -1,4 +1,5 @@
 <?php
+    //deletes a given row in a given table based on primary key
     include('base.php');
     $table = $_POST['table'];
     $id = $_POST['id'];
