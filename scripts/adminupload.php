@@ -1,4 +1,5 @@
 <?php
+    //script uploads an image to the database
     include('base.php');
     $image = addslashes(file_get_contents($_FILES['fileToUpload']['tmp_name']));
     $classid = $_POST['classid'];

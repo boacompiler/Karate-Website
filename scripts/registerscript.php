@@ -1,23 +1,27 @@
 <?php
+    //registers a new user
     include('base.php');
     $email=$_POST['email'];
     $password=$_POST['password'];
     $password2=$_POST['password2'];
     $firstname=$_POST['firstname'];
     $secondname=$_POST['secondname'];
-    $dob=$_POST['dob'];
+    $dob=$_POST['dob']; //date of birth
     if($email == '' or $password == '' or $password2 == '' or $firstname == '' or $secondname == '' or $dob == '')
     {
+        //if any fields are blank, returns to registration page and displays an error
         $_SESSION['errorregister'] = 'Please complete all fields';
         header("Location: ../register.php");
     }
     elseif($password !== $password2)
     {
+        //if repeated passwords do not match, returns to registration page and displays an error
         $_SESSION['errorregister'] = 'Passwords do not match';
         header("Location: ../register.php");
     }
     else
     {
+        //attempts to register the user
         $conn=new mysqli($dbhost,$dbuser,$dbpass,$dbname);
         if ($conn->connect_error)
         {
@@ -27,15 +31,17 @@
         $checkemail = $conn->query($sql);
         if($checkemail->num_rows >= 1)
         {
+            //if the email has already been used, returns to registration page and displays an error
             $_SESSION['errorregister'] = 'That email is already in use';
             header("Location: ../register.php");
         }
         else
         {
-            $password = crypt($password, 'KYT5NfCA5nfnJYvbfeQAlw4b4ON02dfz');
+            $password = crypt($password, 'KYT5NfCA5nfnJYvbfeQAlw4b4ON02dfz');//encrypts password with salt
             $sql = "INSERT INTO `user` (`admin`, `namefirst`, `namesecond`, `email`, `password`, `dateofbirth`) VALUES ('0', '$firstname', '$secondname', '$email', '$password', '$dob');";
             if( $conn->query($sql))
             {
+                //if the registration completes, logs user in
                 $sql = "SELECT * FROM user WHERE password='$password' AND email='$email'";
                 $result = $conn->query($sql);
                 $row = $result->fetch_assoc();
@@ -51,6 +57,7 @@
             }
             else
             {
+                //if the registration fails, returns to registration page and displays an error
                 $_SESSION['errorregister'] = 'Something went wrong, try again later';
                 header("Location: ../register.php");
             }

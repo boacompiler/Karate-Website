@@ -1,3 +1,4 @@
+//script that operates the sticky header
 $(document).ready( function()
 {
     $(window).scroll( function()

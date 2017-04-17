@@ -1,4 +1,5 @@
 <?php
+    //cancels a booked lesson 
     include('base.php');
 
     $classid = $_POST['cancelclassid']; 

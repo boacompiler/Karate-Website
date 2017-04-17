@@ -1,8 +1,9 @@
 <?php
+    //allows a user with correct email and password to log in
     include('base.php');
     $email=$_POST['email'];
     $password=$_POST['password'];
-    $password=crypt($password, 'KYT5NfCA5nfnJYvbfeQAlw4b4ON02dfz');
+    $password=crypt($password, 'KYT5NfCA5nfnJYvbfeQAlw4b4ON02dfz');//encrypts password with salt
     $conn=new mysqli($dbhost,$dbuser,$dbpass,$dbname);
     if ($conn->connect_error)
     {
@@ -13,6 +14,7 @@
 
     if ($result->num_rows == 1) 
     {
+        //if a row matching the encrypted password and email, the credentials are correct
         $row = $result->fetch_assoc();
         session_unset();
         $_SESSION['loggedin'] = 'true';  
@@ -26,6 +28,7 @@
     }
     else
     {
+        //returns user to login page and displays an error
         $_SESSION['errorlogin'] = 'email or password are incorrect';
         header("Location: ../login.php");
     }
