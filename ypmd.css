@@ -92,6 +92,11 @@ h1 a
 {
     color: #d9dcdb;
 }
+#stafftable img
+{
+    width:auto;
+    height:200px;
+}
 img.gallery
 {
     width:auto;
