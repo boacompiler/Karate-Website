@@ -34,7 +34,13 @@
         {
             die("Connection failed: " . $conn->connect_error);
         }
-        $sql = "SELECT * FROM user WHERE email='$email'";
+        $password = crypt($password, 'KYT5NfCA5nfnJYvbfeQAlw4b4ON02dfz');//encrypts password with salt
+        $_email = mysqli_real_escape_string($conn,$email); //escape characters are added to strings to prevent sql injection
+        $_password = mysqli_real_escape_string($conn,$password); 
+        $_firstname = mysqli_real_escape_string($conn,$firstname); 
+        $_secondname = mysqli_real_escape_string($conn,$secondname); 
+        $_dob = mysqli_real_escape_string($conn,$dob); 
+        $sql = "SELECT * FROM user WHERE email='$_email'";
         $checkemail = $conn->query($sql);
         if($checkemail->num_rows >= 1)
         {
@@ -44,12 +50,11 @@
         }
         else
         {
-            $password = crypt($password, 'KYT5NfCA5nfnJYvbfeQAlw4b4ON02dfz');//encrypts password with salt
-            $sql = "INSERT INTO `user` (`admin`, `namefirst`, `namesecond`, `email`, `password`, `dateofbirth`) VALUES ('0', '$firstname', '$secondname', '$email', '$password', '$dob');";
+            $sql = "INSERT INTO `user` (`admin`, `namefirst`, `namesecond`, `email`, `password`, `dateofbirth`) VALUES ('0', '$_firstname', '$_secondname', '$_email', '$_password', '$_dob');";
             if( $conn->query($sql))
             {
                 //if the registration completes, logs user in
-                $sql = "SELECT * FROM user WHERE password='$password' AND email='$email'";
+                $sql = "SELECT * FROM user WHERE password='$_password' AND email='$_email'";
                 $result = $conn->query($sql);
                 $row = $result->fetch_assoc();
                 session_unset();

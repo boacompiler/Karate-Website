@@ -9,6 +9,8 @@
     {
         die("Connection failed: " . $conn->connect_error);
     }
+    $_password = mysqli_real_escape_string($conn,$password); //escape characters are added to strings to prevent sql injection
+    $_email = mysqli_real_escape_string($conn,$email);
     $sql = "SELECT * FROM user WHERE password='$password' AND email='$email'";
     $result = $conn->query($sql);
 
