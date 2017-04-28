@@ -81,6 +81,7 @@
             echo '<form action="scripts/adminupload.php" method="post" enctype="multipart/form-data">'; 
             echo '<input type="hidden" name="classid" value="'.$classid.'">';
             echo '<input type="file" name="fileToUpload" id="fileToUpload">';
+            echo '<input type="text" name="altText" id="altText">';
             echo '<input type="submit" value="Upload Image" name="submit">';
             echo '</form>';
         }
