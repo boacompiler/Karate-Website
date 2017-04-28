@@ -1,8 +1,8 @@
 <?php
     //allows a user with correct email and password to log in
     include('base.php');
-    $email=mysql_real_escape_string($_POST['email']); //real escape strings prevent against sql injection
-    $password=mysql_real_escape_string($_POST['password']);
+    $email=$_POST['email'];
+    $password=$_POST['password'];
     $password=crypt($password, 'KYT5NfCA5nfnJYvbfeQAlw4b4ON02dfz');//encrypts password with salt
     $conn=new mysqli($dbhost,$dbuser,$dbpass,$dbname);
     if ($conn->connect_error)

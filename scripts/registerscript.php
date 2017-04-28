@@ -1,11 +1,11 @@
 <?php
     //registers a new user
     include('base.php');
-    $email=mysql_real_escape_string($_POST['email']);//mysql real escape string prevents sql injection
-    $password=$mysql_real_escape_string(_POST['password']);
-    $password2=$mysql_real_escape_string(_POST['password2']);
-    $firstname=$mysql_real_escape_string(_POST['firstname']);
-    $secondname=$mysql_real_escape_string(_POST['secondname']);
+    $email=$_POST['email'];
+    $password=$_POST['password'];
+    $password2=$_POST['password2'];
+    $firstname=$_POST['firstname'];
+    $secondname=$_POST['secondname'];
     $dob=$_POST['dob']; //date of birth
     if($email == '' or $password == '' or $password2 == '' or $firstname == '' or $secondname == '' or $dob == '')
     {
