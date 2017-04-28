@@ -19,6 +19,13 @@
         $_SESSION['errorregister'] = 'Passwords do not match';
         header("Location: ../register.php");
     }
+    elseif(!preg_match('/[0-9]{4}-[0-9]{2}-[0-9]{2}/',(string)$dob) or !checkdate((int)substr($dob, 5, 2),(int)substr($dob, 8, 2),(int)substr($dob, 0, 4))) 
+    {
+        //if the date is not numeric or not a real gregorian date, returns to registration page and displays an error
+
+        $_SESSION['errorregister'] = 'Invalid date, please use the format yyyy-mm-dd';
+        header("Location: ../register.php");
+    }
     else
     {
         //attempts to register the user
