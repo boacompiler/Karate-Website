@@ -23,4 +23,5 @@
         echo '</tr>';
     }
     echo '</table>';
+    $conn->close();
 ?>
