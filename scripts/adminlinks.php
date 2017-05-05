@@ -6,7 +6,7 @@
 ?>
 <ul>
     <li><a href="adminfeedback.php">view feedback</a></li>
-    <li><a href="adminfeedback.php">view feedback</a></li>
+    <li><a href="adminclass.php">view classes</a></li>
     <li><a href="adminfeedback.php">view feedback</a></li>
     <li><a href="adminfeedback.php">view feedback</a></li>
     <li><a href="adminfeedback.php">view feedback</a></li>
