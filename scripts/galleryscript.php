@@ -38,7 +38,7 @@
         }
 
         echo "<tr style=\"font-weight:bold;\"><td>".$row['name']."</td><td>".$gbp."</td><td>".$form."</td></tr>";    
-        echo "<tr><td>Start Time: ".substr($row['timebegin'], 0, -3);
+        echo "<tr><td>Time: ".$row['day']." at ".substr($row['timebegin'], 0, -3);
         echo "<tr><td>Duration: ".$length." hours";
         echo "<tr><td colspan=2>".$row['description']."</td></tr>";
         echo "<tr><td>instructor: ".$row['namefirst']." ".$row['namesecond']."</td></tr>";
