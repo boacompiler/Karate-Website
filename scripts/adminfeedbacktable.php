@@ -16,6 +16,7 @@
         echo '<tr>';
         echo '<td>'.nl2br($row['feedback']).'</td>';
         echo '<td style="font-weight:bold;">'.$row['namefirst'].' '.$row['namesecond'].'<td>';
+        echo '<td><form method="post" action="scripts/adminfeedbackdelete.php" onsubmit="return confirm(\'Are you sure you want to delete this?\');"><input type="hidden" name="feedbackid" value="'.$row['feedbackid'].'"><input type="submit" value="Delete" ></form></td>';
         echo '</tr>';
         echo '<tr>';
         echo '<td style="font-weight:bold;">'.$row['email'].'</td>'; 
