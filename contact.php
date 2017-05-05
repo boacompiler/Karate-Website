@@ -38,7 +38,22 @@
             <div id="content">
                 <h2>Contact</h2>
                 <p>Y/P/M/D strives for the best, if your experience was not satisfactory, please contact us immediately.</p>
-                <p>Email Us:
+                <p>Leave Some Feedback:</p>
+                <?php if(isset($_SESSION['errorfeedback'])){ echo "<p style=\"color:red;\">".$_SESSION['errorfeedback']."</p>"; unset($_SESSION['errorfeedback']); } ?>
+                <form method="post" action="scripts/feedback.php">
+                    <textarea type="text" name="body" size="500"></textarea>
+                    <p>Submitting as 
+                    <?php 
+                        if(isset($_SESSION['loggedin'])){ 
+                            echo $_SESSION['firstname'];
+                        } else { 
+                            echo "Anonymous";
+                        } 
+                    ?>
+                    </p>
+                    <input type="submit" value="Submit">
+                </form>
+                <p>Email Us:</p>
                 <form action="MAILTO:rthompson@ypmd.com" method="post" enctype="text/plain">
                     Name:<br>
                     <input type="text" name="name" value="your name"><br>
