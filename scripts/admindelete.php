@@ -12,7 +12,7 @@
     $sql = "DELETE FROM $table WHERE $field=$id";
     if($conn->query($sql))
     {
-        header("Location: ../admin.php");
+        header("Location: ../indexadmin.php");
     }
     else
     {

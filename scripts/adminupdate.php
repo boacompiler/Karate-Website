@@ -29,7 +29,7 @@
     $sql = $sql.' WHERE '.$field.' = '.$id.';'; //we finish the sql
     if($conn->query($sql))
     {
-        header("Location: ../admin.php");
+        header("Location: ../adminindex.php");
     }
     else
     {

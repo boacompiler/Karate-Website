@@ -42,7 +42,7 @@
             $i++;
         }
         echo '<td><input type="submit" value="Update"></td>';
-        echo '</form><form action="../admin.php">';
+        echo '</form><form action="../adminindex.php">';
         echo '<td><input type="submit" value="Cancel"></td>';
         echo '</tr>'; 
         echo '</form>';

@@ -28,7 +28,7 @@
     $sql = $sql.');'; // we close the statement
     if($conn->query($sql))
     {
-        header("Location: ../admin.php");
+        header("Location: ../adminindex.php");
     }
     else
     {
