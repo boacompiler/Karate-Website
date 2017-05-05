@@ -36,10 +36,11 @@
                 </table>
             </div>
             <div id="content">
+            <h2>Administrative links</h2>
             <?php
                 if(isset($_SESSION['loggedin']) and $_SESSION['admin'] == '1')
                 {
-                    include 'scripts/admintable.php';
+                    include 'scripts/adminlinks.php';
                 }
                 else
                 {
