@@ -42,14 +42,15 @@
         echo '<td><form method="post" action="scripts/adminclassedit.php">';
         echo '<input type="hidden" name="classid" value="'.$row['classid'].'">';
         echo '<input type="submit" value="Edit"></form></td>';
-        //delet button
+        //delete button
         echo '<td><form method="post" action="scripts/adminclassdelete.php" onsubmit="return confirm(\'Are you sure you want to delete this?\');">';
         echo '<input type="hidden" name="classid" value="'.$row['classid'].'">';
         echo '<input type="submit" value="Delete"></form></td>';
         echo '</tr>';
     }
     echo '</table>';
-    echo '<form method="post" action="scripts/adminclassinsert.php">';
+    echo '<form method="post" action="scripts/adminclassnew.php">';
+    echo '<input type="submit" value="New"></form></td>';
     echo '</form>';
     $conn->close();
 ?>
