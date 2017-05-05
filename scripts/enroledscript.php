@@ -1,6 +1,7 @@
 <?php
     //prints a table of all enroled classes for a given user
     include('base.php');
+    $sum=0;
     $conn=new mysqli($dbhost,$dbuser,$dbpass,$dbname);
     if ($conn->connect_error)
     {
@@ -23,6 +24,7 @@
         //loops through all enroled classes, printing details
         setlocale(LC_MONETARY, 'en_GB.UTF-8'); //sets currency to gbp (£)
         $gbp = money_format('%n',$row['price']);
+        $sum=$sum+$row['price'];
         $length = $row['timeend'] - $row['timebegin'];
         echo '<tr>';
         echo '<td>'.$row['name'].'</td>';
@@ -34,6 +36,9 @@
         echo '<td><form method="post" action="scripts/cancel.php"><input type="hidden" name="cancelclassid" value="'.$row['classid'].'"><input type="submit" value="Cancel" ></form></td>';
         echo '</tr>';
     }
+    $gbp = money_format('%n',$sum);
+    echo '<tr><td></td><td></td><td></td><td></td><td style="font-weight:bold;">Total</td></tr>';
+    echo '<tr><td></td><td></td><td></td><td></td><td>'.$gbp.'</td></tr>';
     echo '</table>';
     $conn->close();
 ?>
