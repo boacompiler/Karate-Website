@@ -23,7 +23,7 @@
 <tr><td>Date of birth</td><td><input type="text" name="dob" id="datepicker"></td></tr>
 <tr><td>First Name</td><td><input type="text" name="namefirst"></td></tr>
 <tr><td>Second Name</td><td><input type="text" name="namesecond"></td></tr>
-<tr><td>Email</td><td><input type="text" name="email"></td></tr>
+<tr><td>Email</td><td><input type="email" name="email"></td></tr>
 <tr><td>Admin</td><td><input type="checkbox" name="admin"></td></tr>
 <tr><td>Password</td><td><input type="password" name="password"></td></tr>
 <tr><td><input type="submit" value="Submit"></td>

@@ -38,7 +38,7 @@
 <tr><td>Date of birth</td><td><input type="text" name="dob" id="datepicker" value="<?php echo $value['dateofbirth']?>"></td></tr>
 <tr><td>First Name</td><td><input type="text" name="namefirst" value="<?php echo $value['namefirst']?>"></td></tr>
 <tr><td>Second Name</td><td><input type="text" name="namesecond" value="<?php echo $value['namesecond']?>"></td></tr>
-<tr><td>Email</td><td><input type="text" name="email" value="<?php echo $value['email']?>"></td></tr>
+<tr><td>Email</td><td><input type="email" name="email" value="<?php echo $value['email']?>"></td></tr>
 <tr><td>Admin</td><td><input type="checkbox" name="admin" <?php echo $admin?>></td></tr>
 <tr><td colspan="2" style="color:red;">Only edit password if resetting</td></tr>
 <tr><td>Password</td><td><input type="password" name="password"></td></tr>
