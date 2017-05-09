@@ -8,7 +8,7 @@
     {
         die("Connection failed: " . $conn->connect_error);
     }
-    $sql = "SELECT * ,d.name as disciplinename,c.name as classname FROM class c INNER JOIN user u ON c.teacher = u.userid INNER JOIN timeslot t ON c.timeslot = t.timeslotid INNER JOIN discipline d ON c.discipline = d.disciplineid;";
+    $sql = "SELECT * ,d.name as disciplinename,c.name as classname FROM class c INNER JOIN user u ON c.teacher = u.userid LEFT JOIN timeslot t ON c.timeslot = t.timeslotid INNER JOIN discipline d ON c.discipline = d.disciplineid;";
     $studentquery = "SELECT c.classid,COUNT(b.userid) FROM class c LEFT JOIN booking b ON b.classid = c.classid GROUP BY c.classid;";
     $result = $conn->query($sql);
     $studentno = $conn->query($studentquery);
