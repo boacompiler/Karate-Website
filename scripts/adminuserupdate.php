@@ -36,7 +36,7 @@
     {
         $passwordupdate = ", password = '$_password'";
     }
-    $sql = "SELECT * FROM user WHERE email='$_email'";
+    $sql = "SELECT * FROM user WHERE email='$_email' AND NOT userid='$userid';";
     $checkemail = $conn->query($sql);
     if($checkemail->num_rows >= 1)
     {
