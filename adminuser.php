@@ -38,6 +38,11 @@
             <div id="content">
             <h2>Users</h2>
             <?php
+                if(isset($_SESSION['erroruser']))
+                { 
+                    echo "<p style=\"color:red;\">".$_SESSION['erroruser']."</p>"; 
+                    unset($_SESSION['erroruser']); 
+                }
                 if(isset($_SESSION['loggedin']) and $_SESSION['admin'] == '1')
                 {
                     include 'scripts/adminusertable.php';
