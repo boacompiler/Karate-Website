@@ -1,4 +1,5 @@
 <?php
+    //generates a table of feedback messages
     if(!(isset($_SESSION['loggedin']) and $_SESSION['admin'] == '1'))
     {
         die();

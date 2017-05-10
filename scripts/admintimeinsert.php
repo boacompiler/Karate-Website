@@ -1,4 +1,5 @@
 <?php
+    //inserts a given timeslot into the db
     include('base.php');
     if(!(isset($_SESSION['loggedin']) and $_SESSION['admin'] == '1'))
     {
