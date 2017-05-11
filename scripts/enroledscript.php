@@ -17,6 +17,7 @@
     echo '<td>Instructor</td>';
     echo '<td>Start</td>';
     echo '<td>Hours</td>';
+    echo '<td>Day</td>';
     echo '<td>Price</td>';
     echo '</tr>';
     while($row = $result->fetch_assoc())
@@ -31,6 +32,7 @@
         echo '<td>'.$row['namefirst']." ".$row['namesecond'].'</td>';
         echo '<td>'.substr($row['timebegin'], 0, -3).'</td>';
         echo '<td>'.$length.'</td>';
+        echo '<td>'.$row['day'].'</td>';
         echo '<td>'.$gbp.'</td>';
         //creates button to cancel enrolement
         echo '<td><form method="post" action="scripts/cancel.php"><input type="hidden" name="cancelclassid" value="'.$row['classid'].'"><input type="submit" value="Cancel" ></form></td>';
